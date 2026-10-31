@@ -1,0 +1,473 @@
+/* ============================================================
+   校园名师
+   ============================================================ */
+
+.teacher-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 28px;
+}
+
+.teacher-card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  height: 100%;
+  padding: 24px 24px 20px;
+  background: var(--c-white);
+  border: 1px solid var(--c-line);
+  border-radius: var(--r-xl);
+  transition: transform var(--t) var(--ease), box-shadow var(--t) var(--ease),
+    border-color var(--t) var(--ease);
+}
+
+.teacher-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--sh-2);
+  border-color: var(--c-line-strong);
+}
+
+.teacher-card__head {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.teacher-card__avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  flex: none;
+  border-radius: 50%;
+  background: linear-gradient(150deg, var(--c-primary-soft), var(--c-icon-grad-end));
+  color: var(--c-primary-dark);
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.teacher-card__name {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--c-title);
+  letter-spacing: 0.04em;
+}
+
+.teacher-card__honor {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 2px;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--c-primary);
+}
+
+.teacher-card__unit {
+  margin-top: 2px;
+  font-size: 12px;
+  color: var(--c-muted);
+}
+
+.teacher-card__cat {
+  margin-left: auto;
+  flex: none;
+  padding: 2px 10px;
+  border-radius: var(--r-pill);
+  background: var(--c-primary-soft);
+  color: var(--c-primary-dark);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.teacher-card__summary {
+  font-size: 14px;
+  line-height: 1.85;
+  color: var(--c-body);
+}
+
+.teacher-card__quote {
+  display: flex;
+  gap: 8px;
+  padding: 12px 14px;
+  border-left: 3px solid var(--c-primary-light);
+  border-radius: 0 var(--r-sm) var(--r-sm) 0;
+  background: var(--c-primary-softer);
+  color: var(--c-title);
+  font-size: 13.5px;
+  line-height: 1.8;
+}
+
+.teacher-card__quote svg {
+  flex: none;
+  margin-top: 3px;
+  color: var(--c-primary-light);
+}
+
+.teacher-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.teacher-card__tag {
+  padding: 3px 10px;
+  border-radius: var(--r-pill);
+  background: var(--c-bg-soft);
+  color: var(--c-body);
+  font-size: 11.5px;
+  font-weight: 600;
+}
+
+.teacher-card__foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: auto;
+  padding-top: 12px;
+  border-top: 1px dashed var(--c-line);
+}
+
+.teacher-card__years {
+  font-size: 11.5px;
+  color: var(--c-muted);
+}
+
+/* ---------- 教学名师名录 ---------- */
+.master-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-top: 22px;
+  padding: 6px;
+  background: var(--c-white);
+  border: 1px solid var(--c-line);
+  border-radius: var(--r-lg);
+}
+
+.master-row {
+  display: grid;
+  grid-template-columns: 64px 92px 1fr auto auto;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  border-radius: var(--r-md);
+  transition: background-color var(--t-fast) var(--ease);
+}
+
+.master-row:hover {
+  background: var(--c-primary-softer);
+}
+
+.master-row__year {
+  font-family: var(--font-en);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--c-primary);
+  letter-spacing: 0.04em;
+}
+
+.master-row__name {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--c-title);
+  letter-spacing: 0.04em;
+}
+
+.master-row__unit {
+  font-size: 13px;
+  color: var(--c-body);
+}
+
+.master-row__badge {
+  padding: 2px 10px;
+  border-radius: var(--r-pill);
+  background: var(--c-ok-soft);
+  color: var(--c-ok);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.master-row__note {
+  font-size: 11.5px;
+  color: var(--c-muted);
+}
+
+.master-note {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 16px;
+  font-size: 12.5px;
+  color: var(--c-muted);
+  line-height: 1.8;
+}
+
+/* ---------- 共通之处 ---------- */
+.lesson-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 26px;
+  counter-reset: lesson;
+}
+
+.lesson {
+  padding: 22px 22px 20px;
+  background: var(--c-white);
+  border: 1px solid var(--c-line);
+  border-radius: var(--r-lg);
+}
+
+.lesson__num {
+  font-family: var(--font-en);
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--c-primary-light);
+  letter-spacing: 0.04em;
+}
+
+.lesson__title {
+  margin-top: 6px;
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--c-title);
+}
+
+.lesson__text {
+  margin-top: 8px;
+  font-size: 13.5px;
+  line-height: 1.85;
+  color: var(--c-body);
+}
+
+/* ---------- 事迹弹窗 ---------- */
+.teacher-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 130;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(58, 32, 20, 0.55);
+  backdrop-filter: blur(4px);
+}
+
+.teacher-modal__panel {
+  position: relative;
+  width: min(720px, 100%);
+  max-height: 88vh;
+  overflow: auto;
+  padding: 30px 32px 26px;
+  background: var(--c-white);
+  border-radius: var(--r-xl);
+  box-shadow: var(--sh-3);
+}
+
+.teacher-modal__close {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--c-line);
+  border-radius: 50%;
+  background: var(--c-white);
+  color: var(--c-muted);
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.teacher-modal__close:hover {
+  color: var(--c-title);
+}
+
+.teacher-modal__eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--c-primary);
+}
+
+.teacher-modal__name {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-top: 6px;
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--c-title);
+}
+
+.teacher-modal__name span {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--c-muted);
+}
+
+.teacher-modal__meta {
+  margin-top: 6px;
+  font-size: 12.5px;
+  color: var(--c-muted);
+}
+
+.teacher-modal__body {
+  margin-top: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.teacher-modal__body p {
+  font-size: 14px;
+  line-height: 1.95;
+  color: var(--c-body);
+}
+
+.teacher-modal__quote {
+  display: flex;
+  gap: 8px;
+  margin-top: 18px;
+  padding: 14px 16px;
+  border-left: 3px solid var(--c-primary);
+  border-radius: 0 var(--r-sm) var(--r-sm) 0;
+  background: var(--c-primary-softer);
+  color: var(--c-title);
+  font-size: 14px;
+  line-height: 1.85;
+}
+
+.teacher-modal__quote svg {
+  flex: none;
+  margin-top: 3px;
+  color: var(--c-primary);
+}
+
+.teacher-modal__sources {
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px dashed var(--c-line);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.teacher-modal__label {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--c-muted);
+  letter-spacing: 0.06em;
+}
+
+.teacher-modal__sources a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--c-primary);
+  word-break: break-all;
+}
+
+.teacher-modal__sources a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 900px) {
+  .teacher-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .lesson-list {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .master-row {
+    grid-template-columns: 52px 1fr;
+    gap: 6px 10px;
+  }
+  .master-row__badge,
+  .master-row__note {
+    grid-column: 2;
+  }
+  .teacher-modal__panel {
+    padding: 24px 20px 20px;
+  }
+  .teacher-modal__name {
+    font-size: 24px;
+  }
+}
+
+/* ---------- 「每一位老师都值得尊敬」 ---------- */
+.respect-band {
+  position: relative;
+  padding: 40px 44px;
+  border-radius: var(--r-xl);
+  background: linear-gradient(135deg, var(--c-primary-soft), var(--c-bg-soft) 60%, var(--c-icon-grad-end));
+  border: 1px solid var(--c-line);
+  overflow: hidden;
+}
+
+.respect-band::before {
+  content: '';
+  position: absolute;
+  top: -40px;
+  right: -30px;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(194, 86, 42, 0.16), transparent 70%);
+}
+
+.respect-band__eyebrow {
+  font-family: var(--font-en);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--c-primary);
+}
+
+.respect-band__title {
+  margin-top: 8px;
+  font-family: var(--font-display);
+  font-size: clamp(21px, 2.2vw, 28px);
+  font-weight: 700;
+  color: var(--c-title);
+  letter-spacing: 0.02em;
+}
+
+.respect-band__text {
+  margin-top: 12px;
+  max-width: 62ch;
+  font-size: 14px;
+  line-height: 1.95;
+  color: var(--c-body);
+}
+
+.respect-band__text a {
+  color: var(--c-primary);
+  font-weight: 600;
+  border-bottom: 1px solid currentColor;
+}
+
+@media (max-width: 1100px) {
+  .teacher-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 760px) {
+  .teacher-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .respect-band {
+    padding: 28px 22px;
+  }
+}

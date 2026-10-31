@@ -1,0 +1,71 @@
+/* ============================================================
+   校园风光：四季实景横幅
+   ============================================================ */
+
+.page-banner__img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 45%;
+}
+
+.page-banner--photo .page-banner__scrim {
+  background: linear-gradient(
+      95deg,
+      rgba(58, 32, 20, 0.78) 0%,
+      rgba(58, 32, 20, 0.42) 48%,
+      rgba(58, 32, 20, 0.14) 100%
+    ),
+    linear-gradient(180deg, rgba(58, 32, 20, 0.22) 0%, rgba(58, 32, 20, 0.08) 50%, rgba(58, 32, 20, 0.4) 100%);
+}
+
+.page-banner--photo .page-banner__title,
+.page-banner--photo .page-banner__desc,
+.page-banner--photo .page-banner__eyebrow {
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.45);
+}
+
+/* 板块切换条紧接横幅，下面的区块不再重复大段留白 */
+.section--flush-top {
+  padding-top: clamp(8px, 1.2vw, 16px);
+}
+
+/* ============================================================
+   校园风光：核心景点入口条
+   ============================================================ */
+
+.spot-strip {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-bottom: 26px;
+  padding: 16px 18px;
+  background: var(--c-primary-softer);
+  border: 1px solid var(--c-line);
+  border-radius: var(--r-lg);
+}
+
+.spot-strip__label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--c-primary);
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+.chip--spot {
+  text-decoration: none;
+  font-weight: 600;
+}
+
+@media (max-width: 640px) {
+  .spot-strip {
+    gap: 10px;
+    padding: 14px;
+  }
+}

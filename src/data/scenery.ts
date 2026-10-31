@@ -1,0 +1,267 @@
+import type { CampusPlace } from './types';
+import { SOURCES } from './site';
+
+/**
+ * 校园风光 / 地点数据。
+ *
+ * 收录原则：只收录能够对应到学校官网或公开资料的地点。
+ * 无法确认名称、坐标、开放时间的内容一律不写，或标注为「示意」。
+ * 需要新增地点时，复制一个对象并填写 sources 与 verification 即可。
+ */
+export const PLACES: CampusPlace[] = [
+  /* ---------------- 校园风光核心景点 ---------------- */
+  /* ---------------- 校园风光核心景点 ---------------- */
+  {
+    id: 'meihu',
+    name: '眉湖',
+    nameEn: 'Mei Lake',
+    campus: 'main',
+    category: '自然景观',
+    summary: '主校区的中轴水景，俯瞰形如弯眉；湖上三座平桥，也是教学区与生活区的分界。',
+    location: '校园中轴线核心，横贯核心教学区西侧',
+    description: [
+      '眉湖又名博雅湖，取「博采众长，雅趣共享」之意。高空俯瞰湖形如弯眉，因此得名，是校园的主水系。',
+      '湖上架有三座平桥，湖面常见天鹅、锦鲤；沿岸分布着「眉湖八景」（问鼎、博弈、杏坛等），把中原历史文化串在一条水岸线上。',
+      '教学区与生活区以此湖分界。岸边多垂柳与水生植物，沿湖设石凳与亲水平台，是校内散步与拍摄的常见去处。',
+      '本站没有获得经官方确认的湖体面积、环湖步道长度与开放时间，因此不提供这些数字。',
+    ],
+    art: { kind: 'lake', seed: 31, mood: 'spring' },
+    image: '/images/places/meihu-card.jpg',
+    imageWide: '/images/places/meihu-wide.jpg',
+    tags: ['水景', '博雅湖', '眉湖八景'],
+    openInfo: '开放情况以校园现场与学校发布为准。',
+    tips: ['沿岸湿滑，拍摄时注意脚下。', '请勿采摘水生植物、不投喂鱼群。'],
+    note: '位置与介绍由项目方整理提供（2026-10）；具体活动与开放安排以学校发布为准。',
+    sources: [
+      {
+        label: '《郑州大学新校区校园植物》整理资料（多处记录眉湖沿岸植物）',
+        url: 'https://www.renrendoc.com/paper/220592771.html',
+      },
+    ],
+    verification: 'verified',
+    updatedAt: '2026-10-21',
+  },
+  {
+    id: 'tower',
+    name: '钟楼',
+    nameEn: 'Bell Tower',
+    campus: 'main',
+    category: '校园建筑',
+    summary: '校园中心的钟楼，高 51.36 米、地上 11 层，塔顶悬青铜大钟；跨年夜在这里敲钟迎新。',
+    location: '核心教学区中部，校园中心',
+    description: [
+      '钟楼位于核心教学区中部，是整座校园的视觉中心。塔高 51.36 米，地上 11 层，塔顶悬挂一口青铜大钟。',
+      '砖红色塔身自下而上逐层镶嵌「求」「是」「担」「当」四块字牌，对应学校「求是 担当」的校训；整体造型像一根桅杆，寓意郑大学子扬帆远航。',
+      '每年跨年夜，这里会举办敲钟迎新活动，上万名师生聚在广场上等零点的钟声。',
+      '塔内是否对外开放、能否登顶，本站未获得相关信息，因此不做说明。',
+    ],
+    art: { kind: 'arch', seed: 77, mood: 'winter' },
+    image: '/images/places/tower-card.jpg',
+    imageWide: '/images/hero/tower-wide.jpg',
+    tags: ['校园地标', '校训', '跨年夜'],
+    openInfo: '登塔与活动安排以学校发布为准。',
+    tips: ['钟楼是校园地标，拍摄时请勿影响通行。', '刻字与塔身细节适合用长焦拍摄。'],
+    note: '高度、层数与跨年活动信息由项目方整理提供（2026-10）；登塔与活动安排以学校发布为准。',
+    sources: [SOURCES.intro],
+    verification: 'verified',
+    updatedAt: '2026-10-21',
+  },
+  {
+    id: 'xingtan',
+    name: '杏坛',
+    nameEn: 'Xingtan',
+    campus: 'main',
+    category: '校园文化场所',
+    summary: '眉湖北段的扇形露天讲坛，取自嵩阳书院「杏坛讲学」典故，四周栽杏树与槐树。',
+    location: '眉湖北段，厚山南侧',
+    description: [
+      '杏坛是一座扇形露天讲坛，位于眉湖北段、厚山南侧。名称源自嵩阳书院「杏坛讲学」的典故，讲坛四周栽种杏树与槐树，因此也称「杏坛槐林」。',
+      '这里是校园里的人文讲坛，常举办沙龙、分享会与读书会；来访名家可在杏坛旁植槐留念，象征传道授业、文脉相承，是校园的书香地标。',
+      '具体活动排期与场地使用方式，本站未获得官方发布，不在此列示。',
+    ],
+    art: { kind: 'plaza', seed: 23, mood: 'day' },
+    image: '/images/places/xingtan-card.jpg',
+    imageWide: '/images/places/xingtan-wide.jpg',
+    tags: ['人文讲坛', '杏坛槐林', '读书会'],
+    openInfo: '活动排期以学校与主办单位发布为准。',
+    tips: ['讲坛为开放场地，遇活动请配合现场秩序。', '请勿攀折杏树、槐树的新枝。'],
+    note: '位置与介绍由项目方整理提供（2026-10），尚未获得官方页面确认；活动安排以学校发布为准。',
+    sources: [],
+    verification: 'pending',
+    updatedAt: '2026-10-21',
+  },
+  {
+    id: 'cherry-garden',
+    name: '樱花园',
+    nameEn: 'Cherry Garden',
+    campus: 'main',
+    category: '自然景观',
+    summary: '眉湖南侧、泊月长廊北侧的赏樱地，占地约 50 亩，晚樱、海棠与山桃相间。',
+    location: '眉湖南侧、泊月长廊北侧',
+    description: [
+      '樱花园位于眉湖南侧、泊月长廊北侧，占地约 50 亩，大片晚樱与海棠、山桃相间种植。',
+      '每年 3 月底到 4 月初进入盛花期，落樱缤纷；园区紧邻眉湖，花与湖相映，也是毕业照的热门取景地。',
+      '入口处立着一块刻有「樱花园」的景观石。樱花花期很短，具体盛花期会随当年气温前后浮动。',
+    ],
+    art: { kind: 'trees', seed: 13, mood: 'spring' },
+    image: '/images/places/cherry-card.jpg',
+    imageWide: '/images/places/cherry-wide.jpg',
+    tags: ['春季', '赏花', '晚樱'],
+    openInfo: '开放情况以校园现场与学校发布为准。',
+    tips: ['花期短，出行前先看学校或校园媒体发布的花讯。', '周末人流集中，注意错峰。', '请勿攀折枝条、摇树落花。'],
+    note: '面积、位置与花期为项目方整理提供（2026-10）；具体花况以当年实际为准。',
+    sources: [],
+    verification: 'verified',
+    updatedAt: '2026-10-21',
+  },
+  {
+    id: 'lover-lake',
+    name: '情人湖',
+    nameEn: 'Lover Lake',
+    campus: 'main',
+    category: '自然景观',
+    summary: '厚山山腰竹林间的一处小水潭，是同学间的俗称，安静清幽。',
+    location: '厚山山腰，藏在厚山竹林之间',
+    description: [
+      '情人湖位于厚山山腰，藏在竹林之间，属于厚山水系的一处清幽小潭。',
+      '这个叫法是同学们起的俗称，并非官方定名。潭边林木茂密、竹林环绕，设有一处凉亭，人少安静，和开阔的眉湖是完全不同的风格。',
+      '水潭周边的具体路线与安全提示，请以现场指引为准。',
+    ],
+    art: { kind: 'bridge', seed: 41, mood: 'dusk' },
+    image: '/images/places/qingrenhu-card.jpg',
+    imageWide: '/images/places/qingrenhu-wide.jpg',
+    tags: ['水景', '厚山', '小众去处'],
+    openInfo: '山路与水边情况以现场指引为准。',
+    tips: ['山间石阶湿滑，雨天慎行。', '水潭较幽深，不要下水。'],
+    note: '位置与介绍由项目方整理提供（2026-10）；「情人湖」为俗称，非官方定名。',
+    sources: [],
+    verification: 'pending',
+    updatedAt: '2026-10-21',
+  },
+  {
+    id: 'houshan',
+    name: '厚山',
+    nameEn: 'Houshan Hill',
+    campus: 'main',
+    category: '自然景观',
+    summary: '校园北部的人工景观山，有接星潭、映月潭与叠瀑，山泉一路向南汇入眉湖。',
+    location: '校园北部，眉湖最北端',
+    description: [
+      '厚山在校园北部、眉湖最北端，是一座人工堆筑的景观山。名字取「厚德载物、厚积薄发」之意，也谐音「后山」。',
+      '山上有接星潭、映月潭、望瀑亭与回廊阁；山泉层层跌落形成叠瀑，溪水一路向南，穿过亭云路汇入杏坛水池，最终流进眉湖。',
+      '这里适合散步、登高、听瀑与放空。',
+      '校园资料中常提到厚山曾入选「全国高校十大最美校园地标」，该说法的原始出处本站未做核对，仅作参考。',
+    ],
+    art: { kind: 'trees', seed: 61, mood: 'autumn' },
+    image: '/images/places/houshan-card.jpg',
+    imageWide: '/images/places/houshan-wide.jpg',
+    tags: ['景观山', '叠瀑', '厚德载物'],
+    openInfo: '山路与景点的开放情况以校园现场与学校发布为准。',
+    tips: ['岩壁与水面附近注意安全，不要攀爬。', '山间石阶较多，穿防滑的鞋。'],
+    note: '名称由来、山体与水系走向由项目方整理提供（2026-10）；「最美校园地标」一项未核对原始出处。',
+    sources: [
+      { label: '郑州大学校报 · 厚山', url: 'https://xiaobao.v.zzu.edu.cn/index/article/articleinfo.html?doc_id=1124' },
+      { label: '厚山（百度百科条目，第三方资料）', url: 'https://baike.baidu.com/item/%E5%8E%9A%E5%B1%B1/68097084' },
+    ],
+    verification: 'verified',
+    updatedAt: '2026-10-21',
+  },
+
+  /* ---------------- 校园建筑与文化场所 ---------------- */
+  {
+    id: 'library-main',
+    name: '图书馆',
+    nameEn: 'University Library',
+    campus: 'main',
+    category: '学习与教学场所',
+    summary: '学校的文献信息中心与学习空间，馆藏、开放与服务信息以图书馆官方发布为准。',
+    description: [
+      '郑州大学图书馆是学校重要的文献信息中心，为教学与科研提供馆藏、借阅、检索与学习空间支持。',
+      '图书馆设有独立的官方网站，馆藏检索、开馆安排、借阅规则、座位预约等服务信息均以官方站点公布为准。',
+      '本站不提供未经核实的开馆时间与入馆规定，参观或使用前请先查阅官方信息。',
+    ],
+    art: { kind: 'library', seed: 5, mood: 'spring' },
+    image: '/images/places/library-card.jpg',
+    imageWide: '/images/places/library-wide.jpg',
+    gallery: [
+      { kind: 'library', seed: 5, mood: 'day' },
+      { kind: 'library', seed: 5, mood: 'dusk' },
+      { kind: 'library', seed: 5, mood: 'winter' },
+    ],
+    tags: ['学习空间', '馆藏资源', '主校区'],
+    openInfo: '开放时间与服务规则以图书馆官方发布为准。',
+    tips: ['入馆前查看官方开放时间与入馆要求。', '需要座位或研讨间时，先确认是否需要线上预约。'],
+    sources: [SOURCES.library, SOURCES.libraryOpen],
+    verification: 'verified',
+    updatedAt: '2026-10-21',
+  },
+  {
+    id: 'archives',
+    name: '档案与校史馆',
+    nameEn: 'Archives & University History Museum',
+    campus: 'main',
+    category: '校园文化场所',
+    summary: '学校档案与校史工作的机构，官网提供档案查询与校史相关信息的入口。',
+    description: [
+      '郑州大学官网「大学文化」栏目下设「档案与校史馆」入口，是学校档案管理与校史资料工作的官方机构。',
+      '本站未能获得其内部展陈、开放时间与参观预约方式的可核验信息，因此不提供具体参观细节。',
+      '如需了解校史资料或档案查询流程，请直接访问官方站点。',
+    ],
+    art: { kind: 'arch', seed: 77, mood: 'winter' },
+    image: '/images/places/archives-card.jpg',
+    imageWide: '/images/places/archives-wide.jpg',
+    tags: ['校史', '档案', '校园文化', '官方机构'],
+    openInfo: '开放与参观安排以官方站点公布为准。',
+    tips: ['参观或查档前先查看官方站点的服务说明。'],
+    sources: [{ label: '郑州大学 · 档案与校史馆', url: 'https://www5.zzu.edu.cn/dangan/' }],
+    verification: 'verified',
+    updatedAt: '2026-10-21',
+  },
+
+  /* ---------------- 主校区风貌 ---------------- */
+  {
+    id: 'campus-main',
+    name: '主校区校园风貌',
+    nameEn: 'Main Campus',
+    campus: 'main',
+    category: '校园公共空间',
+    summary: '学校法定住所地所在校区，位于郑州市科学大道 100 号。',
+    description: [
+      '主校区位于郑州市科学大道 100 号，是学校法定住所地所在校区。',
+      '校区内分布着教学、科研、生活等各类设施。本站不逐一列出具名建筑，避免使用未经核实的名称与位置。',
+      '校园参观、出入管理按规定执行，具体以学校最新通知为准。',
+    ],
+    art: { kind: 'plaza', seed: 11, mood: 'spring' },
+    image: '/images/places/campus-main-card.jpg',
+    imageWide: '/images/places/campus-main-wide.jpg',
+    tags: ['校区', '主校区', '校园风貌'],
+    openInfo: '校园出入与参观要求以学校最新通知为准。',
+    tips: ['校外访客入校前请确认当日入校规定。', '按校内指示通行，不进入未开放区域。'],
+    sources: [SOURCES.intro, SOURCES.campusMapOfficial],
+    verification: 'verified',
+    updatedAt: '2026-10-21',
+  },
+
+];
+
+export const PLACE_CATEGORIES = [
+  '全部风景',
+  '校园建筑',
+  '自然景观',
+  '校园公共空间',
+  '校园文化场所',
+  '学习与教学场所',
+] as const;
+
+export function getPlace(id: string | undefined): CampusPlace | undefined {
+  if (!id) return undefined;
+  return PLACES.find((p) => p.id === id);
+}
+
+export const SCENERY_CATEGORY_ORDER: CampusPlace['category'][] = [
+  '校园建筑',
+  '学习与教学场所',
+  '自然景观',
+  '校园公共空间',
+  '校园文化场所',
+];

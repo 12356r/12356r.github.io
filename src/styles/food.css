@@ -1,0 +1,566 @@
+/* ============================================================
+   每日吃什么：入口 + 转盘
+   ============================================================ */
+
+.wheel-trigger {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 14px 18px;
+  border: 1px solid var(--c-line);
+  border-radius: var(--r-lg);
+  background: linear-gradient(100deg, var(--c-primary-softer), var(--c-white) 60%);
+  text-align: left;
+  cursor: pointer;
+  transition: border-color var(--t) var(--ease), box-shadow var(--t) var(--ease), transform var(--t) var(--ease);
+}
+
+.wheel-trigger:hover {
+  border-color: var(--c-primary-light);
+  box-shadow: var(--sh-1);
+  transform: translateY(-1px);
+}
+
+.wheel-trigger__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  flex: none;
+  border-radius: 12px;
+  background: linear-gradient(150deg, var(--c-primary), var(--c-primary-light));
+  color: #fff;
+}
+
+.wheel-trigger__text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.wheel-trigger__text strong {
+  font-family: var(--font-display);
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--c-title);
+  letter-spacing: 0.02em;
+}
+
+.wheel-trigger__text span {
+  font-size: 12.5px;
+  color: var(--c-muted);
+}
+
+.wheel-trigger__go {
+  margin-left: auto;
+  color: var(--c-primary);
+  display: inline-flex;
+}
+
+.wheel-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 120;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(58, 32, 20, 0.55);
+  backdrop-filter: blur(4px);
+  animation: wheel-fade 0.18s var(--ease);
+}
+
+.wheel-modal {
+  position: relative;
+  width: min(560px, 100%);
+  max-height: 92vh;
+  overflow: auto;
+  padding: 26px 24px 22px;
+  background: var(--c-white);
+  border-radius: var(--r-xl);
+  box-shadow: var(--sh-3);
+}
+
+.wheel-modal__close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--c-line);
+  border-radius: 50%;
+  background: var(--c-white);
+  color: var(--c-muted);
+  cursor: pointer;
+}
+
+.wheel-modal__close:hover {
+  color: var(--c-title);
+  border-color: var(--c-line-strong);
+}
+
+.wheel-stage {
+  position: relative;
+  width: min(420px, 100%);
+  margin: 8px auto 0;
+  aspect-ratio: 1;
+}
+
+.wheel-canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  box-shadow: 0 10px 30px rgba(74, 47, 34, 0.18), inset 0 0 0 6px #fff;
+}
+
+.wheel-pointer {
+  position: absolute;
+  top: -6px;
+  left: 50%;
+  z-index: 2;
+  width: 0;
+  height: 0;
+  transform: translateX(-50%);
+  border-left: 11px solid transparent;
+  border-right: 11px solid transparent;
+  border-top: 20px solid var(--c-primary-deep);
+  filter: drop-shadow(0 2px 4px rgba(58, 32, 20, 0.35));
+}
+
+.wheel-panel {
+  margin-top: 18px;
+  text-align: center;
+}
+
+.wheel-panel__eyebrow {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--c-muted);
+}
+
+.wheel-panel__dish {
+  margin-top: 4px;
+  font-family: var(--font-display);
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--c-title);
+}
+
+.wheel-panel__meta {
+  margin-top: 4px;
+  font-size: 13px;
+  color: var(--c-body);
+}
+
+.wheel-panel__hint {
+  margin-top: 6px;
+  font-size: 13px;
+  color: var(--c-muted);
+  line-height: 1.7;
+}
+
+.wheel-panel__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 16px;
+}
+
+@keyframes wheel-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 560px) {
+  .wheel-modal {
+    padding: 20px 16px 18px;
+  }
+  .wheel-panel__dish {
+    font-size: 22px;
+  }
+  .wheel-trigger__text span {
+    display: none;
+  }
+}
+
+/* ============================================================
+   校园美食：招牌菜标签与详情要点
+   ============================================================ */
+
+.food-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+.food-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 9px;
+  border-radius: var(--r-pill);
+  background: var(--c-primary-soft);
+  color: var(--c-primary-dark);
+  font-size: 11.5px;
+  font-weight: 600;
+  line-height: 1.8;
+  white-space: nowrap;
+}
+
+.food-facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.food-facts__item {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 11px;
+  border-radius: var(--r-pill);
+  border: 1px solid var(--c-line);
+  background: var(--c-bg-soft);
+  color: var(--c-body);
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.food-detail__block {
+  margin-top: 18px;
+}
+
+.food-detail__label {
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--c-title);
+}
+
+/* ---------------- 食堂档口推荐 ---------------- */
+
+.pick-block {
+  margin-top: 34px;
+  padding-top: 28px;
+  border-top: 1px dashed var(--c-line-strong);
+}
+
+.pick-block__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.pick-block__title {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--c-title);
+  letter-spacing: 0.02em;
+}
+
+.pick-block__note {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  max-width: 520px;
+  padding: 8px 12px;
+  border-radius: var(--r-sm);
+  background: var(--c-warn-soft);
+  color: var(--c-warn);
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.pick-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.pick-card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: var(--c-white);
+  border: 1px solid var(--c-line);
+  border-radius: var(--r-lg);
+  transition: transform var(--t) var(--ease), box-shadow var(--t) var(--ease);
+}
+
+.pick-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--sh-2);
+}
+
+.pick-card__media {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: var(--c-bg-soft);
+}
+
+.pick-card__media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.pick-card__flag {
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+  padding: 2px 8px;
+  border-radius: var(--r-pill);
+  background: rgba(58, 32, 20, 0.72);
+  color: #fff;
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  backdrop-filter: blur(2px);
+}
+
+.pick-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 14px 16px 16px;
+}
+
+.pick-card__top {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.pick-card__name {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--c-title);
+}
+
+.pick-card__price {
+  flex: none;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--c-primary);
+}
+
+.pick-card__floor {
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--c-muted);
+}
+
+.pick-card__desc {
+  font-size: 12.5px;
+  line-height: 1.75;
+  color: var(--c-body);
+}
+
+@media (max-width: 1024px) {
+  .pick-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* 食堂详情页内：主栏宽度有限，两列更稳 */
+.pick-grid--detail {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+/* 食堂详情头图：实景照片自带说明文字，左侧压暗才好压白字 */
+.detail--canteen .detail__stage-media img {
+  /* 照片下半部烘着说明字幕，把头图往上抬，避开字幕带 */
+  object-position: center 18%;
+}
+
+.detail--canteen .detail__stage-scrim {
+  background: linear-gradient(
+      90deg,
+      rgba(58, 32, 20, 0.95) 0%,
+      rgba(58, 32, 20, 0.78) 38%,
+      rgba(58, 32, 20, 0.4) 72%,
+      rgba(58, 32, 20, 0.24) 100%
+    ),
+    linear-gradient(180deg, rgba(58, 32, 20, 0.18) 0%, rgba(58, 32, 20, 0.28) 55%, rgba(58, 32, 20, 0.55) 100%);
+}
+
+.detail--canteen .detail__stage-inner h1,
+.detail--canteen .detail__campus,
+.detail--canteen .breadcrumbs a,
+.detail--canteen .breadcrumbs span {
+  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.5);
+}
+
+/* 照片里烘着的说明字幕会透到标题后面，用一层深色玻璃把标题托起来 */
+.detail--canteen .detail__title-row > div {
+  display: inline-block;
+  padding: 14px 22px 16px;
+  border-radius: var(--r-md);
+  background: rgba(58, 32, 20, 0.62);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* 侧栏：其他食堂 */
+.side-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.side-list__link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 10px;
+  border-radius: var(--r-sm);
+  color: var(--c-body);
+  font-size: 13.5px;
+  font-weight: 600;
+  transition: background-color var(--t-fast) var(--ease), color var(--t-fast) var(--ease);
+}
+
+.side-list__link span {
+  flex: 1;
+}
+
+.side-list__link:hover {
+  background: var(--c-primary-soft);
+  color: var(--c-primary);
+}
+
+@media (max-width: 560px) {
+  .pick-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* ---------- 收藏页：食堂档口 ---------- */
+.pick-card__fav {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 50%;
+  background: rgba(255, 250, 244, 0.86);
+  color: var(--c-body);
+  cursor: pointer;
+  backdrop-filter: blur(3px);
+  transition: all var(--t-fast) var(--ease);
+}
+
+.pick-card__fav:hover {
+  color: var(--c-primary);
+  border-color: var(--c-primary-light);
+}
+
+.pick-card__fav.is-on {
+  background: var(--c-primary);
+  border-color: var(--c-primary);
+  color: #fff;
+}
+
+.fav-picks {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.fav-pick {
+  display: flex;
+  gap: 14px;
+  padding: 14px;
+  background: var(--c-white);
+  border: 1px solid var(--c-line);
+  border-radius: var(--r-lg);
+  transition: border-color var(--t) var(--ease), box-shadow var(--t) var(--ease);
+}
+
+.fav-pick:hover {
+  border-color: var(--c-line-strong);
+  box-shadow: var(--sh-1);
+}
+
+.fav-pick__media {
+  width: 96px;
+  height: 96px;
+  flex: none;
+  border-radius: var(--r-md);
+  overflow: hidden;
+  background: var(--c-bg-soft);
+}
+
+.fav-pick__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.fav-pick__body {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+  flex: 1;
+}
+
+.fav-pick__top {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.fav-pick__name {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--c-title);
+}
+
+.fav-pick__price {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--c-primary);
+}
+
+.fav-pick__top .fav-board__remove {
+  margin-left: auto;
+}
+
+.fav-pick__meta {
+  font-size: 12px;
+  color: var(--c-muted);
+}
+
+@media (max-width: 900px) {
+  .fav-picks {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

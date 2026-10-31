@@ -1,0 +1,419 @@
+/* ============================================================
+   思政育人
+   ============================================================ */
+
+.edu-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 26px;
+}
+
+.edu-card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  height: 100%;
+  padding: 22px 24px 20px;
+  background: var(--c-white);
+  border: 1px solid var(--c-line);
+  border-radius: var(--r-xl);
+  transition: transform var(--t) var(--ease), box-shadow var(--t) var(--ease), border-color var(--t) var(--ease);
+}
+
+.edu-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--sh-2);
+  border-color: var(--c-line-strong);
+}
+
+.edu-card__top {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.edu-card__index {
+  font-family: var(--font-en);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--c-primary-light);
+  line-height: 1.1;
+}
+
+.edu-card__title {
+  font-family: var(--font-display);
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--c-title);
+  letter-spacing: 0.03em;
+}
+
+.edu-card__title a:hover {
+  color: var(--c-primary);
+}
+
+.edu-card__en {
+  margin-top: 2px;
+  font-family: var(--font-en);
+  font-size: 10.5px;
+  letter-spacing: 0.16em;
+  color: var(--c-muted);
+}
+
+.edu-card__theme {
+  margin-left: auto;
+  flex: none;
+  padding: 3px 10px;
+  border-radius: var(--r-pill);
+  background: var(--c-primary-soft);
+  color: var(--c-primary-dark);
+  font-size: 11px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.edu-card__link {
+  font-size: 14px;
+  line-height: 1.85;
+  color: var(--c-body);
+}
+
+.edu-card__points {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding-left: 0;
+}
+
+.edu-card__points li {
+  position: relative;
+  padding-left: 16px;
+  font-size: 13px;
+  line-height: 1.8;
+  color: var(--c-body);
+}
+
+.edu-card__points li::before {
+  content: '';
+  position: absolute;
+  left: 2px;
+  top: 9px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--c-primary-light);
+}
+
+.edu-card .link-arrow {
+  margin-top: auto;
+  padding-top: 4px;
+}
+
+/* ---------- 页面末尾的「思政育人视角」 ---------- */
+.edu-note {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 28px;
+  padding: 18px 20px;
+  border: 1px dashed var(--c-primary-light);
+  border-radius: var(--r-lg);
+  background: linear-gradient(135deg, var(--c-primary-softer), var(--c-white));
+}
+
+.edu-note__head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.edu-note__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 10px;
+  border-radius: var(--r-pill);
+  background: var(--c-primary);
+  color: #fff;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.edu-note__theme {
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--c-primary-dark);
+}
+
+.edu-note__text {
+  font-size: 13.5px;
+  line-height: 1.85;
+  color: var(--c-body);
+}
+
+.edu-note .link-arrow {
+  font-size: 12.5px;
+}
+
+@media (max-width: 900px) {
+  .edu-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .edu-card__theme {
+    display: none;
+  }
+}
+
+/* ---------- 板块内的「思政微课堂」 ---------- */
+.edu-spot {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 26px 28px 22px;
+  border-radius: var(--r-xl);
+  background: linear-gradient(140deg, #fdf3e9, var(--c-white) 55%, var(--c-primary-softer));
+  border: 1px solid var(--c-line);
+  box-shadow: var(--sh-1);
+}
+
+.edu-spot__head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.edu-spot__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: var(--r-pill);
+  background: var(--c-primary);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.edu-spot__theme {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--c-primary-dark);
+}
+
+.edu-spot__scene {
+  font-family: var(--font-display);
+  font-size: clamp(15px, 1.5vw, 17px);
+  line-height: 1.95;
+  color: var(--c-title);
+}
+
+.edu-spot__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.edu-spot__cell {
+  padding: 14px 16px;
+  border-radius: var(--r-lg);
+  background: var(--c-white);
+  border: 1px dashed var(--c-line-strong);
+}
+
+.edu-spot__label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--c-primary);
+}
+
+.edu-spot__text {
+  margin-top: 8px;
+  font-size: 13.5px;
+  line-height: 1.9;
+  color: var(--c-body);
+}
+
+.edu-spot .link-arrow {
+  align-self: flex-start;
+  font-size: 12.5px;
+}
+
+@media (max-width: 780px) {
+  .edu-spot {
+    padding: 20px 18px;
+  }
+  .edu-spot__grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* ---------- 社团活动 · 活动纪实 ---------- */
+.act-feature-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 26px;
+}
+
+.act-feature {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: var(--c-white);
+  border: 1px solid var(--c-line);
+  border-radius: var(--r-xl);
+  transition: transform var(--t) var(--ease), box-shadow var(--t) var(--ease), border-color var(--t) var(--ease);
+}
+
+.act-feature:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--sh-2);
+  border-color: var(--c-line-strong);
+}
+
+.act-feature__media {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: var(--c-bg-soft);
+}
+
+.act-feature__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform var(--t-slow) var(--ease-out);
+}
+
+.act-feature:hover .act-feature__media img {
+  transform: scale(1.04);
+}
+
+.act-feature__theme {
+  position: absolute;
+  left: 12px;
+  bottom: 12px;
+  padding: 3px 10px;
+  border-radius: var(--r-pill);
+  background: var(--c-primary);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}
+
+.act-feature__body {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 18px 20px 20px;
+  flex: 1;
+}
+
+.act-feature__name {
+  font-family: var(--font-display);
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--c-title);
+  letter-spacing: 0.03em;
+}
+
+.act-feature__when {
+  font-size: 11.5px;
+  color: var(--c-muted);
+  line-height: 1.7;
+}
+
+.act-feature__summary {
+  font-size: 13px;
+  line-height: 1.85;
+  color: var(--c-body);
+}
+
+.act-feature__details {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin: 2px 0 4px;
+}
+
+.act-feature__details li {
+  position: relative;
+  padding-left: 14px;
+  font-size: 12.5px;
+  line-height: 1.75;
+  color: var(--c-body);
+}
+
+.act-feature__details li::before {
+  content: '';
+  position: absolute;
+  left: 2px;
+  top: 8px;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--c-primary-light);
+}
+
+.act-feature__edu {
+  display: flex;
+  gap: 8px;
+  margin-top: auto;
+  padding: 12px 14px;
+  border-radius: var(--r-md);
+  background: var(--c-primary-softer);
+  border-left: 3px solid var(--c-primary-light);
+  font-size: 12.5px;
+  line-height: 1.8;
+  color: var(--c-title);
+}
+
+.act-feature__edu svg {
+  flex: none;
+  margin-top: 3px;
+  color: var(--c-primary);
+}
+
+@media (max-width: 1000px) {
+  .act-feature-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 720px) {
+  .act-feature-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* ---------- 板块横幅：青春正能量 · 红色插画 ---------- */
+.youth-banner {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.page-banner--youth .page-banner__scrim {
+  background: linear-gradient(
+      95deg,
+      rgba(74, 16, 12, 0.82) 0%,
+      rgba(96, 26, 18, 0.55) 42%,
+      rgba(120, 40, 24, 0.24) 100%
+    ),
+    linear-gradient(180deg, rgba(70, 14, 10, 0.3) 0%, rgba(70, 14, 10, 0.08) 46%, rgba(58, 12, 8, 0.5) 100%);
+}
+
+.page-banner--youth .page-banner__eyebrow {
+  color: rgba(255, 236, 214, 0.86);
+}

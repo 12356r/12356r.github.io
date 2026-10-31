@@ -1,0 +1,129 @@
+/* ============================================================
+   设计令牌 · Design Tokens
+   郑州大学校园探索 Zhengzhou University Campus Explorer
+   ------------------------------------------------------------
+   配色：暖色系（奶油底 + 陶土橙 + 暖褐文字），追求明亮、温和、
+   看了不刺眼的观感。改色只需要动本文件的变量。
+   ============================================================ */
+
+:root {
+  /* ---------- 色彩 ---------- */
+  --c-primary: #c2562a;
+  --c-primary-dark: #9d3f1c;
+  --c-primary-deep: #7a3012;
+  --c-primary-light: #e0805a;
+  --c-primary-soft: #fdf0e7;
+  --c-primary-softer: #fff7f1;
+
+  --c-white: #ffffff;
+  --c-bg: #fffaf4;
+  --c-bg-soft: #fdf4ea;
+  --c-bg-blue: #fdeee0;
+
+  --c-title: #4a2f22;
+  --c-body: #7a5c4b;
+  --c-muted: #a68b78;
+  --c-line: #f0e0d2;
+  --c-line-strong: #e5cdb8;
+
+  --c-footer: #4a2f22;
+  --c-footer-soft: #5c3b2b;
+
+  --c-ok: #6f8f4e;
+  --c-ok-soft: #eff4e4;
+  --c-warn: #b7791f;
+  --c-warn-soft: #fdf3e0;
+  --c-illust: #9a7bb0;
+  --c-illust-soft: #f7f0f6;
+
+  /* 半透明表面（导航、浮层、地图控件） */
+  --c-nav-bg: rgba(255, 250, 244, 0.9);
+  --c-nav-bg-solid: rgba(255, 250, 244, 0.97);
+  --c-overlay: rgba(255, 250, 244, 0.96);
+  --c-icon-grad-end: #fbe3cd;
+
+  /* ---------- 字体 ---------- */
+  --font-sans: "Noto Sans SC", "Source Han Sans SC", "PingFang SC",
+    "Hiragino Sans GB", "Microsoft YaHei", system-ui, -apple-system, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-display: "Noto Serif SC", "Source Han Serif SC", "Songti SC",
+    "STSong", var(--font-sans);
+  --font-en: "Inter", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+
+  /* ---------- 字号 ---------- */
+  --fs-h1: clamp(28px, 3.4vw, 44px);
+  --fs-h2: clamp(22px, 2.4vw, 30px);
+  --fs-h3: clamp(18px, 1.6vw, 21px);
+  --fs-card: 18px;
+  --fs-body: 15px;
+  --fs-sm: 13.5px;
+  --fs-xs: 12.5px;
+
+  /* ---------- 圆角（暖色系配更圆润的转角） ---------- */
+  --r-xs: 8px;
+  --r-sm: 12px;
+  --r-md: 16px;
+  --r-lg: 22px;
+  --r-xl: 30px;
+  --r-pill: 999px;
+
+  /* ---------- 阴影（用暖褐色阴影，避免灰蓝发脏） ---------- */
+  --sh-1: 0 1px 2px rgba(74, 47, 34, 0.05), 0 4px 14px rgba(122, 92, 75, 0.07);
+  --sh-2: 0 6px 18px rgba(74, 47, 34, 0.08), 0 16px 40px rgba(122, 92, 75, 0.1);
+  --sh-3: 0 10px 28px rgba(74, 47, 34, 0.12), 0 28px 64px rgba(122, 92, 75, 0.14);
+
+  /* ---------- 布局 ---------- */
+  --container: 1200px;
+  --container-wide: 1360px;
+  --gutter: clamp(16px, 4vw, 32px);
+  --nav-h: 74px;
+  --section-y: clamp(48px, 6.5vw, 88px);
+
+  /* ---------- 动效 ---------- */
+  --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --t-fast: 160ms;
+  --t: 260ms;
+  --t-slow: 420ms;
+}
+
+/* 深色模式：暖棕夜色，而不是冷蓝 */
+:root[data-theme='dark'] {
+  --c-bg: #241a14;
+  --c-bg-soft: #2d211a;
+  --c-bg-blue: #33251c;
+  --c-primary-soft: #3a2a20;
+  --c-primary-softer: #2c2018;
+  --c-primary: #e08a5f;
+  --c-primary-dark: #f0a578;
+  --c-primary-light: #efa87f;
+
+  --c-title: #f7ece1;
+  --c-body: #d7bda9;
+  --c-muted: #a98d78;
+  --c-line: #3d2d22;
+  --c-line-strong: #4c3a2c;
+
+  --c-white: #2a1f18;
+  --c-ok-soft: #2a2f1e;
+  --c-warn-soft: #3a2c17;
+  --c-illust-soft: #33263a;
+
+  --c-nav-bg: rgba(36, 26, 20, 0.88);
+  --c-nav-bg-solid: rgba(36, 26, 20, 0.97);
+  --c-overlay: rgba(42, 31, 24, 0.96);
+  --c-icon-grad-end: #4a3527;
+
+  --sh-1: 0 1px 2px rgba(0, 0, 0, 0.35), 0 4px 14px rgba(0, 0, 0, 0.28);
+  --sh-2: 0 8px 22px rgba(0, 0, 0, 0.4), 0 18px 44px rgba(0, 0, 0, 0.32);
+  --sh-3: 0 12px 32px rgba(0, 0, 0, 0.5), 0 30px 70px rgba(0, 0, 0, 0.42);
+}
+
+:root[data-theme='dark'] .step__num {
+  color: #3a2a20;
+}
+
+:root[data-theme='dark'] .brand__mark,
+:root[data-theme='dark'] .quick-card__icon {
+  box-shadow: none;
+}

@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#C2562A" />
+    <meta
+      name="description"
+      content="郑州大学校园探索：浏览校园风光、校园地图、宿舍生活、校园美食、社团活动、学院专业与参观攻略。本站为校园文化与信息导览项目，非郑州大学官方网站。"
+    />
+    <meta name="keywords" content="郑州大学,郑大,校园风光,校园地图,校园生活,学院专业,校园攻略" />
+    <meta property="og:title" content="郑州大学校园探索 · 遇见郑大，遇见更好的自己" />
+    <meta
+      property="og:description"
+      content="从一处风景开始，探索郑州大学的校园生活与人文故事。"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="zh_CN" />
+    <link rel="icon" type="image/png" sizes="64x64" href="/favicon.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <title>郑州大学校园探索 · 遇见郑大</title>
+
+    <!-- 首帧前置应用主题，避免浅色闪一下再变深色 -->
+    <script>
+      (function () {
+        try {
+          var choice = localStorage.getItem('zzu-explorer:theme') || 'system';
+          var dark =
+            choice === 'dark' ||
+            (choice === 'system' &&
+              window.matchMedia('(prefers-color-scheme: dark)').matches);
+          document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+        } catch (e) {
+          document.documentElement.dataset.theme = 'light';
+        }
+      })();
+    </script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "郑州大学校园探索",
+        "alternateName": "Zhengzhou University Campus Explorer",
+        "description": "以校园导览方式整理郑州大学公开信息的非官方网站，提供校园风光、校园地图、宿舍、美食、社团、学院与参观攻略。",
+        "inLanguage": "zh-CN",
+        "url": "http://127.0.0.1:5180/",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "http://127.0.0.1:5180/search?q={search_term_string}",
+          "query-input": "required name=search_term_string"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "郑州大学校园探索（校园文化与信息导览项目）"
+        }
+      }
+    </script>
+    <script type="module" crossorigin src="/assets/index-DtbBWo-G.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-DtEi568T.css">
+  </head>
+  <body>
+    <div id="root"></div>
+    <noscript>本网站需要启用 JavaScript 才能浏览完整内容。</noscript>
+  </body>
+</html>
